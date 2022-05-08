@@ -1,4 +1,4 @@
-<%= form_for([@task.project, @task], html: {class: 'form-inline'}) do |f| %>
+<%= form_for([@task.project, @task]) do |f| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -11,28 +11,7 @@
     </div>
   <% end %>
 
-  <div class="input-group">
-    <%= f.text_field :name, class:'form-control', placeholder: 'Enter task name...' %>
-  <div class="input-group-append">
-    <%= f.submit class: 'btn btn-primary' %>
-    </div>
-  </div>
-<% end %>
-
-<%# <h4>Tasks</h4>
-<% @project.tasks.each do |task| %>
-  <%# <% if task.persisted? %>
-<%# <div class="card"> %>
-  <%# <div class="card-body"> %>
-    <%# <span class="badge badge-primary"><%= task.status %>
-      <%# <h5><%= task.name%>
-      <%# <p><%= task.description%>
-  <%# </div> %>
-<%# </div> %>
-<%# <% end%> 
-<%# <% end%> 
-
-<div class="form-group">
+  <div class="form-group">
     <%= f.label :name %><br />
     <%= f.text_field :name, class: 'form-control' %>
   </div>
@@ -47,3 +26,4 @@
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
   </div>
+<% end %>
